@@ -37,7 +37,7 @@ None as yet
 
 See the [Changelog][changelog]
 
-[changelog]:./CHANGELOG.md
+[changelog]:./CHANGELOG.md "Changelog"
 [sblair]:https://marketplace.visualstudio.com/items?itemName=scott-blair.copy-breadcrumbs "Scott Blair's Copy Breadcrumbs Plugin"
-[icon]:./assets/icon-128.png
-[screen-recording]:./assets/copy-breadcrumbs-1080p.gif
+[icon]:./assets/icon-128.png "Icon"
+[screen-recording]:./assets/copy-breadcrumbs-1080p.gif "Screen Recording"
