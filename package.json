@@ -20,10 +20,13 @@
     "ui",
     "workspace"
   ],
-  "homepage": "https://github.com/cunneen/vscode-copy-breadcrumbs",
+  "homepage": "https://github.com/cunneen/vscode-copy-breadcrumbs/blob/main/README.md",
   "repository": {
-    "url": "https://github.com/cunneen/vscode-copy-breadcrumbs",
+    "url": "https://github.com/cunneen/vscode-copy-breadcrumbs.git",
     "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/cunneen/vscode-copy-breadcrumbs/issues"
   },
   "galleryBanner": {
     "color": "#F2E9D8",
