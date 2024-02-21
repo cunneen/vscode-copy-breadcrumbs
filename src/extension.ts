@@ -51,7 +51,7 @@ function getRelativeParts(activeEditor: vscode.TextEditor, breadcrumbSeparator: 
   const relative_parts = relative.split("/");
 
   // push the the individual parts to the list.
-  let parts = [];
+  let parts: string[] = [];
   for (const part of relative_parts) {
     parts.push(part);
   }

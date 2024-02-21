@@ -10,9 +10,7 @@ Sit tight, we're about to enter inception-mode:
 
 If, for example, you were editing this very README file and you wanted to grab the breadcrumb, you would simply open the Command Palette and choose "Copy Breadcrumb".
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
+![screen-recording]
 
 ## Background
 
@@ -42,3 +40,4 @@ See the [Changelog][changelog]
 [changelog]:./CHANGELOG.md
 [sblair]:https://marketplace.visualstudio.com/items?itemName=scott-blair.copy-breadcrumbs "Scott Blair's Copy Breadcrumbs Plugin"
 [icon]:./assets/icon-128.png
+[screen-recording]:./assets/copy-breadcrumbs-1080p.gif
