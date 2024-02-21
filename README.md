@@ -1,6 +1,6 @@
 # Copy Breadcrumbs Plugin for VSCode
 
-![icon]
+![icon](./assets/icon-128.png "Extension Icon")
 
 This is a fork of [scott blair's copy breadcrumbs plugin][sblair] for visual studio code.
 
@@ -10,7 +10,7 @@ Sit tight, we're about to enter inception-mode:
 
 If, for example, you were editing this very README file and you wanted to grab the breadcrumb, you would simply open the Command Palette and choose "Copy Breadcrumb".
 
-![screen-recording]
+![screen recording](./assets/copy-breadcrumbs-1080p.gif "Screen recording")
 
 ## Background
 
@@ -37,7 +37,5 @@ None as yet
 
 See the [Changelog][changelog]
 
-[changelog]:./CHANGELOG.md "Changelog"
-[sblair]:https://marketplace.visualstudio.com/items?itemName=scott-blair.copy-breadcrumbs "Scott Blair's Copy Breadcrumbs Plugin"
-[icon]:./assets/icon-128.png "Icon"
-[screen-recording]:./assets/copy-breadcrumbs-1080p.gif "Screen Recording"
+[changelog]: CHANGELOG.md "Changelog"
+[sblair]: https://marketplace.visualstudio.com/items?itemName=scott-blair.copy-breadcrumbs "Scott Blair's Copy Breadcrumbs Plugin"
