@@ -1,6 +1,6 @@
 {
   "name": "cunneen-copy-breadcrumbs",
-  "displayName": "Copy Breadcrumbs",
+  "displayName": "Breadcrumb Copier",
   "description": "Copy the active editor's breadcrumbs path",
   "publisher": "MikeCunneen",
   "author": {
@@ -37,10 +37,10 @@
   "contributes": {
     "commands": [{
       "command": "cunneen-copy-breadcrumbs.copy",
-      "title": "Copy Breadcrumbs"
+      "title": "Breadcrumb Copier"
     }],
     "configuration": {
-      "title": "Copy Breadcrumbs",
+      "title": "Breadcrumb Copier",
       "properties": {
         "cunneen-copy-breadcrumbs.pasteToTerminal": {
           "type": "boolean",

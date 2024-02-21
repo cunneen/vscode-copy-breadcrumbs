@@ -1,4 +1,4 @@
-# Copy Breadcrumbs Plugin for VSCode
+# Breadcrumb Copier Plugin for VSCode
 
 ![icon](./assets/icon-128.png "Extension Icon")
 
