@@ -1,0 +1,90 @@
+{
+  "name": "cunneen-copy-breadcrumbs",
+  "displayName": "Copy Breadcrumbs",
+  "description": "Copy the active editor's breadcrumbs path",
+  "publisher": "MikeCunneen",
+  "author": {
+    "name": "Mike Cunneen",
+    "url": "https://github.com/cunneen"
+  },
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "./assets/icon-128.png",
+  "pricing": "Free",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "homepage": "https://github.com/cunneen/vscode-copy-breadcrumbs",
+  "repository": {
+    "url": "https://github.com/cunneen/vscode-copy-breadcrumbs",
+    "type": "git"
+  },
+  "galleryBanner": {
+    "color": "#F2E9D8",
+    "theme": "light"
+  },
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "cunneen-copy-breadcrumbs.copy",
+      "title": "Copy Breadcrumbs"
+    }],
+    "configuration": {
+      "title": "Copy Breadcrumbs",
+      "properties": {
+        "cunneen-copy-breadcrumbs.pasteToTerminal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically paste the breadcrumb path into the active terminal."
+        },
+        "cunneen-copy-breadcrumbs.copyToClipboard": {
+          "type": "boolean",
+          "default": true,
+          "description": "Copy the breadcrumb path to the clipboard."
+        },
+        "cunneen-copy-breadcrumbs.showAlert": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a notification message with the clipboard contents."
+        },
+        "cunneen-copy-breadcrumbs.separationString": {
+          "type": "string",
+          "default": ".",
+          "description": "String used to separate breadcrumb path components"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.86.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
