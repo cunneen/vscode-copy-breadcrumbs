@@ -1,9 +1,13 @@
 {
-  "name": "copy-breadcrumbs",
+  "name": "cunneen-copy-breadcrumbs",
   "displayName": "Copy Breadcrumbs",
-  "publisher": "scott-blair",
+  "publisher": "MikeCunneen",
+  "author": {
+    "name": "Mike Cunneen",
+    "url": "https://github.com/cunneen"
+  },
   "description": "",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.69.1"
   },
@@ -11,31 +15,51 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:copy-breadcrumbs.copy"
+    "onCommand:cunneen-copy-breadcrumbs.copy"
   ],
+  "icon": "./assets/icon-128.png",
+  "pricing": "Free",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "homepage": "https://github.com/cunneen/vscode-copy-breadcrumbs",
+  "repository": {
+    "url": "https://github.com/cunneen/vscode-copy-breadcrumbs",
+    "type": "git"
+  },
+  "galleryBanner": {
+    "color": "#F2E9D8",
+    "theme": "light"
+  },
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "copy-breadcrumbs.copy",
+      "command": "cunneen-copy-breadcrumbs.copy",
       "title": "Copy Breadcrumbs"
     }],
     "configuration": {
       "title": "Copy Breadcrumbs",
       "properties": {
-        "copy-breadcrumbs.pasteToTerminal": {
+        "cunneen-copy-breadcrumbs.pasteToTerminal": {
           "type": "boolean",
           "default": true,
           "description": "Automatically paste the breadcrumb path into the active terminal."
         },
-        "copy-breadcrumbs.copyToClipboard": {
+        "cunneen-copy-breadcrumbs.copyToClipboard": {
           "type": "boolean",
           "default": true,
           "description": "Copy the breadcrumb path to the clipboard."
         },
-        "copy-breadcrumbs.showAlert": {
+        "cunneen-copy-breadcrumbs.showAlert": {
           "type": "boolean",
           "default": true,
           "description": "Show a notification message with the clipboard contents."
+        },
+        "cunneen-copy-breadcrumbs.separationString": {
+          "type": "string",
+          "default": ".",
+          "description": "String used to separate breadcrumb path components"
         }
       }
     }
