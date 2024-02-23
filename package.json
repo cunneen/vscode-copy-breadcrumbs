@@ -7,7 +7,7 @@
     "name": "Mike Cunneen",
     "url": "https://github.com/cunneen"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -37,14 +37,14 @@
   "contributes": {
     "commands": [{
       "command": "cunneen-copy-breadcrumbs.copy",
-      "title": "Breadcrumb Copier"
+      "title": "Copy Breadcrumb"
     }],
     "configuration": {
       "title": "Breadcrumb Copier",
       "properties": {
         "cunneen-copy-breadcrumbs.pasteToTerminal": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Automatically paste the breadcrumb path into the active terminal."
         },
         "cunneen-copy-breadcrumbs.copyToClipboard": {
@@ -59,7 +59,7 @@
         },
         "cunneen-copy-breadcrumbs.separationString": {
           "type": "string",
-          "default": ".",
+          "default": " > ",
           "description": "String used to separate breadcrumb path components"
         }
       }

@@ -6,6 +6,11 @@ This is a fork of [scott blair's copy breadcrumbs plugin][sblair] for visual stu
 
 ## What does it do?
 
+It copies the Breadcrumbs at the top of your VSCode's editor pane, into the clipboard (or optionally to the local terminal).
+
+For example, while I'm typing the contents of this README.md, the current breadcrumb is showing:
+` > Users > mikecunneen > Development > vscode-copy-breadcrumbs > cunneen-copy-breadcrumbs > README.md > # Breadcrumb Copier Plugin for VSCode > ## What does it do?`
+
 Sit tight, we're about to enter inception-mode:
 
 If, for example, you were editing this very README file and you wanted to grab the breadcrumb, you would simply open the Command Palette and choose "Copy Breadcrumb".
@@ -24,10 +29,10 @@ The original plugin worked nicely (thank you Scott Blair) but I forked it becaus
 
 This extension contributes the following settings:
 
-* `cunneen-copy-breadcrumbs.pasteToTerminal` (boolean): If enabled, will automatically paste the breadcrumb path into the active terminal upon copy command (default: `true`)
+* `cunneen-copy-breadcrumbs.pasteToTerminal` (boolean): If enabled, will automatically paste the breadcrumb path into the active terminal upon copy command (default: `false`)
 * `cunneen-copy-breadcrumbs.copyToClipboard` (boolean): If enabled, will copy the breadcrumb path to the clipboard upon copy command (default: `true`)
 * `cunneen-copy-breadcrumbs.showAlert` (boolean): If enabled, will show an alert upon copy command (default: `true`)
-* `cunneen-copy-breadcrumbs.separationString` (string): The string to use as a path separator (default: `"."`)
+* `cunneen-copy-breadcrumbs.separationString` (string): The string to use as a path separator (default: `" > "`)
 
 ## Known Issues
 
