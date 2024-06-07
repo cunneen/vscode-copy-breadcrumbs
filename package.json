@@ -7,7 +7,7 @@
     "name": "Mike Cunneen",
     "url": "https://github.com/cunneen"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -38,7 +38,12 @@
     "commands": [{
       "command": "cunneen-copy-breadcrumbs.copy",
       "title": "Copy Breadcrumb"
-    }],
+    },
+    {
+      "command": "cunneen-copy-breadcrumbs.copy-last",
+      "title": "Copy Breadcrumb - Last Part Only"
+    }
+  ],
     "configuration": {
       "title": "Breadcrumb Copier",
       "properties": {

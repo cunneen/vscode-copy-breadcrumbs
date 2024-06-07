@@ -6,37 +6,55 @@ import * as path from "path";
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand(
-    "cunneen-copy-breadcrumbs.copy",
-    function () {
-      let activeEditor = vscode.window.activeTextEditor;
-      const config = vscode.workspace.getConfiguration(
-        "cunneen-copy-breadcrumbs"
-      );
-	  const separationString = config.separationString ?? ".";
+  const allCommandNames: CommandNameType[] = ["cunneen-copy-breadcrumbs.copy", "cunneen-copy-breadcrumbs.copy-last"];
+  for (const commandName of allCommandNames) {
+    const registeredCommand = vscode.commands.registerCommand(
+      commandName as string,
+      getCommandFnForVSCodeRegistration(commandName)
+    );
 
-      if (activeEditor) {
-        const currentLine = activeEditor.selection.active.line;
-        const relative = getRelativeParts(activeEditor, separationString);
-
-        getSymbols(activeEditor, currentLine).then((symbols) => {
-          const typedSymbols = symbols as (
-            | vscode.SymbolInformation
-            | vscode.DocumentSymbol
-          )[];
-          performActionWithBreadcrumbSymbols(config, typedSymbols, relative);
-        });
-      } else {
-        vscode.window.showErrorMessage("No active editor open.");
-      }
-    }
-  );
-
-  context.subscriptions.push(disposable);
+    context.subscriptions.push(registeredCommand);
+  }
 }
 
 // This method is called when your extension is deactivated
 export function deactivate() { /* placeholder; gets called when extension is deactivated. */ }
+
+type CommandNameType = "cunneen-copy-breadcrumbs.copy" | "cunneen-copy-breadcrumbs.copy-last";
+
+/**
+ * Performs the action based on the command name
+ * @param config - The configuration object
+ * @param symbols - The symbols to perform the action on
+ * @param relative - The relative path of the active editor
+ * @param commandName - The command name
+ * @returns a function that can be registered via `vscode.commands.registerCommand`
+ */
+function getCommandFnForVSCodeRegistration(commandName: CommandNameType) {
+  const commandFn = function () {
+    let activeEditor = vscode.window.activeTextEditor;
+    const config = vscode.workspace.getConfiguration(
+      "cunneen-copy-breadcrumbs"
+    );
+    const separationString = config.separationString ?? ".";
+
+    if (activeEditor) {
+      const currentLine = activeEditor.selection.active.line;
+      const relative = getRelativeParts(activeEditor, separationString);
+
+      getSymbols(activeEditor, currentLine).then((symbols) => {
+        const typedSymbols = symbols as (
+          | vscode.SymbolInformation
+          | vscode.DocumentSymbol
+        )[];
+        performActionWithBreadcrumbSymbols(config, typedSymbols, relative, commandName);
+      });
+    } else {
+      vscode.window.showErrorMessage("No active editor open.");
+    }
+  };
+  return commandFn;
+}
 
 /**
  * Grabs the path of the active editor
@@ -123,24 +141,29 @@ function getSymbols(activeEditor: vscode.TextEditor, currentLine: number) {
 
 /**
  * Perform the configured action, either pasting to the active terminal or copying to the clipboard.
- * @param {*} config
- * @param {*} symbols
- * @param {*} relative
  */
 function performActionWithBreadcrumbSymbols(
   config: vscode.WorkspaceConfiguration,
   symbols: (vscode.SymbolInformation | vscode.DocumentSymbol)[],
-  relative: string
+  relative: string,
+  commandName: CommandNameType
 ) {
-  let breadcrumbs;
+  let breadcrumbs: string;
   const separationString = config.separationString ?? ".";
 
   if (symbols.length === 0) {
     breadcrumbs = relative;
   } else {
-    breadcrumbs = `${relative}${separationString}${symbols.join(
-      separationString
-    )}`;
+    switch (commandName) {
+      case "cunneen-copy-breadcrumbs.copy-last":
+        breadcrumbs = `${symbols[symbols.length - 1]}`;
+        break;
+      case "cunneen-copy-breadcrumbs.copy":
+      default:
+        breadcrumbs = `${relative}${separationString}${symbols.join(
+          separationString
+        )}`;
+    }
   }
 
   const activeTerminal = vscode.window.activeTerminal;
