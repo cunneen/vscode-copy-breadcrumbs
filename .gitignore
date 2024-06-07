@@ -132,3 +132,7 @@ extension/package.json
 
 # VSCode history extension
 /.history/
+.env*
+.flaskenv*
+!.env.project
+!.env.vault

@@ -79,7 +79,10 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "pull-dotenv": "npx dotenv-vault@latest pull",
+    "push-dotenv": "npx dotenv-vault@latest push",
+    "publish": "eval $(cat ./.env) && VSCE_PAT=$VSCE_PAT vsce publish"
   },
   "devDependencies": {
     "@types/vscode": "^1.86.0",
