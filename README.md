@@ -34,6 +34,11 @@ This extension contributes the following settings:
 * `cunneen-copy-breadcrumbs.showAlert` (boolean): If enabled, will show an alert upon copy command (default: `true`)
 * `cunneen-copy-breadcrumbs.separationString` (string): The string to use as a path separator (default: `" > "`)
 
+The following commands are available via the command palette:
+
+* `cunneen-copy-breadcrumbs.copy`: Copy Breadcrumb
+* `cunneen-copy-breadcrumbs.copy-last`: Copy Breadcrumb - Last Part Only
+
 ## Known Issues
 
 None as yet
